@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+
+
+
+
 
 interface User{
   email?: string;
@@ -14,17 +19,42 @@ interface User{
 export class HomePage {
 
   user: User = {
-    email: 'test2@test.com',
+    email: 'amadrid378@hotmail.com',
     password: 'test1234',
 
   };
+ 
 
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor(
+    public afAuth: AngularFireAuth,
+    private router: Router
+    
 
-  async createAccount() {}
+    ) {}
 
-  async login() {}
+  async createAccount() {
+    const user = await this.afAuth.auth.createUserWithEmailAndPassword(
+      this.user.email,
+    this.user.password,
+    );
 
-  async logout() {}
+    console.log(user);
+  }
+
+  async login() {
+      this.router.navigateByUrl('/login');
+      const user = await this.afAuth.auth.signInWithEmailAndPassword(
+      this.user.email,
+      this.user.password
+      
+    );
+
+
+    console.log(user);
+  }
+
+  async logout() {
+    await this.afAuth.auth.signOut();
+  }
 
 }
