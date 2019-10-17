@@ -36,4 +36,21 @@ export class DashboardPage implements OnInit {
       console.log(error);
     })
   }
+  Burger_Menu(){
+    this.navCtrl.navigateForward('/burger-menu');
+  }
+  Pizza_Menu(){
+    this.navCtrl.navigateForward('/pizza-menu');
+  }
+  Beverages_Menu(){
+    this.navCtrl.navigateForward('/beverages-menu');
+
+  }
+  Alcohol(){
+    this.navCtrl.navigateForward('/alcohol');
+
+  }
+  
+
+
 }
