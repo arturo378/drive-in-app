@@ -13,6 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthenticateService } from './services/authentication.service';
 import * as firebase from 'firebase';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 
 firebase.initializeApp(environment.firebase);
 @NgModule({
@@ -25,6 +28,10 @@ firebase.initializeApp(environment.firebase);
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     ReactiveFormsModule,
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
+
+    
 
     ],
   providers: [

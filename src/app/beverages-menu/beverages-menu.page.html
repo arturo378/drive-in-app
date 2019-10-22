@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>beverages_menu</ion-title>
+    <ion-title>Beverages</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -8,5 +8,15 @@
 </ion-header>
 
 <ion-content>
+  <ion-card *ngFor = "let beverages of data">
+    <ion-card-header>
+      <ion-card-subtitle>{{beverages.Price}}</ion-card-subtitle>
+      <ion-card-title>{{beverages.Name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{beverages.Description}}
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

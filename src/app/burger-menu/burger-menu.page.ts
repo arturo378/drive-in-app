@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from '../services/authentication.service';
 import { NavController, ModalController } from '@ionic/angular';
 
+import { CrudService } from './../services/crud.service';
 
 
 
@@ -13,10 +14,12 @@ import { NavController, ModalController } from '@ionic/angular';
 export class BurgerMenuPage implements OnInit {
 
   userEmail: string;
+  data: any;
   
   constructor(
     private navCtrl: NavController,
-    private authService: AuthenticateService
+    private authService: AuthenticateService,
+    private crudService: CrudService
   ) { }
 
   ngOnInit() {
@@ -25,6 +28,21 @@ export class BurgerMenuPage implements OnInit {
     }else{
       this.navCtrl.navigateBack('');
     }
+    
+    this.crudService.read_burger().subscribe(data => {
+ 
+      this.data = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          Name: e.payload.doc.data()['name'],
+          Price: e.payload.doc.data()['price'],
+          Description: e.payload.doc.data()['description'],
+          
+        };
+      })
+      console.log(this.data);
+ 
+    });
   }
   }
 

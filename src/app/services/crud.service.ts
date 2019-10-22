@@ -16,8 +16,17 @@ export class CrudService {
     return this.firestore.collection('Students').add(record);
   }
 
-  read_Students() {
-    return this.firestore.collection('Students').snapshotChanges();
+  read_burger() {
+    return this.firestore.collection('burgers').snapshotChanges();
+  }
+  read_beverages() {
+    return this.firestore.collection('beverages').snapshotChanges();
+  }
+  read_alcohol() {
+    return this.firestore.collection('cocktails_beer').snapshotChanges();
+  }
+  read_pizza() {
+    return this.firestore.collection('pizza').snapshotChanges();
   }
 
   update_Student(recordID,record){
