@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
+import { Storage } from '@ionic/storage';
  
 @Component({
   selector: 'app-dashboard',
@@ -14,8 +15,23 @@ export class DashboardPage implements OnInit {
  
   constructor(
     private navCtrl: NavController,
-    private authService: AuthenticateService
-  ) {}
+    private authService: AuthenticateService,
+    private storage: Storage,
+    
+  ) 
+  {
+  //  this.setTheValue();
+  //  this.getTheValue();
+  }
+  setTheValue(){
+  this.storage.set('name', "ironMan")
+  }
+  getTheValue(){
+    this.storage.get('name').then( (val) => {
+      console.log("value is " + val)
+    })
+  }
+
  
   ngOnInit(){
     
@@ -24,6 +40,14 @@ export class DashboardPage implements OnInit {
     }else{
       this.navCtrl.navigateBack('');
     }
+    this.storage.set('age', '23');
+
+  // Or to get a key/value pair
+  this.storage.get('age').then((val) => {
+    console.log('Your age is', val);
+  });
+
+
   }
  
   logout(){

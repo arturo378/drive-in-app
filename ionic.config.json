@@ -1,5 +1,7 @@
 {
   "name": "drive-in-mobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

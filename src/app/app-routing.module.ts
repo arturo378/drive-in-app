@@ -6,9 +6,11 @@ const routes: Routes = [
    { path: '', loadChildren: './login/login.module#LoginPageModule' },
    { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
    { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
-  { path: 'burger-menu', loadChildren: './burger-menu/burger-menu.module#BurgerMenuPageModule' },  { path: 'pizza-menu', loadChildren: './pizza-menu/pizza-menu.module#PizzaMenuPageModule' },
+  { path: 'burger-menu', loadChildren: './burger-menu/burger-menu.module#BurgerMenuPageModule' },
+  { path: 'pizza-menu', loadChildren: './pizza-menu/pizza-menu.module#PizzaMenuPageModule' },
   { path: 'beverages-menu', loadChildren: './beverages-menu/beverages-menu.module#BeveragesMenuPageModule' },
-  { path: 'alcohol', loadChildren: './alcohol/alcohol.module#AlcoholPageModule' }
+  { path: 'alcohol', loadChildren: './alcohol/alcohol.module#AlcoholPageModule' },
+  
 
 
 
