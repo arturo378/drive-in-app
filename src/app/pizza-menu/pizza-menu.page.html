@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor = "let pizza of data">
+  <ion-card (click)="openModal()" expand="full" *ngFor = "let pizza of data">
       <img src="https://firebasestorage.googleapis.com/v0/b/drive-in-93f2b.appspot.com/o/Pizza%2Fthe_pig.jpg?alt=media&token=350d11a1-577b-4a19-a1cc-12f5b4e60c86"/>
     <ion-card-header>
       <ion-card-subtitle>{{pizza.Price}}</ion-card-subtitle>

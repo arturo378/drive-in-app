@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from '../services/authentication.service';
 import { NavController, ModalController } from '@ionic/angular';
-
+import { SelectFoodPage } from '../select-food/select-food.page';
 import { CrudService } from './../services/crud.service';
 
 
@@ -19,7 +19,8 @@ export class BurgerMenuPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticateService,
-    private crudService: CrudService
+    private crudService: CrudService,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -43,6 +44,12 @@ export class BurgerMenuPage implements OnInit {
       console.log(this.data);
  
     });
+  }
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: SelectFoodPage
+    });
+    return await modal.present();
   }
   }
 

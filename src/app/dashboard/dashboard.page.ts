@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
 import { Storage } from '@ionic/storage';
+
+
+
+
  
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +21,7 @@ export class DashboardPage implements OnInit {
     private navCtrl: NavController,
     private authService: AuthenticateService,
     private storage: Storage,
+    
     
   ) 
   {
@@ -50,6 +55,7 @@ export class DashboardPage implements OnInit {
 
   }
  
+
   logout(){
     this.authService.logoutUser()
     .then(res => {

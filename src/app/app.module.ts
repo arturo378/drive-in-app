@@ -15,12 +15,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { IonicStorageModule } from '@ionic/storage';
+import { SelectFoodPage } from '../app/select-food/select-food.page';
 
 
 firebase.initializeApp(environment.firebase);
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, SelectFoodPage],
+  entryComponents: [SelectFoodPage],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
