@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card (click)="openModal()" expand="full" *ngFor = "let burgers of data">
+  <ion-card (click)="openModal(burgers)" expand="full" *ngFor = "let burgers of data">
     <ion-card-header>
       <ion-card-subtitle>{{burgers.Price}}</ion-card-subtitle>
       <ion-card-title>{{burgers.Name}}</ion-card-title>

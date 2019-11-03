@@ -38,21 +38,24 @@ export class BurgerMenuPage implements OnInit {
           Name: e.payload.doc.data()['name'],
           Price: e.payload.doc.data()['price'],
           Description: e.payload.doc.data()['description'],
+          Category: e.payload.doc.data()['category']
           
         };
       })
-      console.log(this.data);
+      //console.log(this.data);
  
     });
   }
-  async openModal() {
+  async openModal(burgers) {
+    
     const modal = await this.modalController.create({
       component: SelectFoodPage,
       componentProps: {
-        data: this.data
+        data: burgers
       }
     });
-    
+    return await modal.present();
+
   }
 
   }
