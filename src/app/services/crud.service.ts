@@ -12,8 +12,8 @@ export class CrudService {
   ) { }
 
 
-  create_NewStudent(record) {
-    return this.firestore.collection('Students').add(record);
+  create_ticket(record) {
+    return this.firestore.collection('tickets').add(record);
   }
 
   read_burger() {

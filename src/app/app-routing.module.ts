@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'burger-menu', loadChildren: './burger-menu/burger-menu.module#BurgerMenuPageModule' },
   { path: 'pizza-menu', loadChildren: './pizza-menu/pizza-menu.module#PizzaMenuPageModule' },
   { path: 'beverages-menu', loadChildren: './beverages-menu/beverages-menu.module#BeveragesMenuPageModule' },
-  { path: 'alcohol', loadChildren: './alcohol/alcohol.module#AlcoholPageModule' },
+  { path: 'alcohol', loadChildren: './alcohol/alcohol.module#AlcoholPageModule' },  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
+
   
 
 

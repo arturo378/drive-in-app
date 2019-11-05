@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
-import { Storage } from '@ionic/storage';
+
 
 
 
@@ -20,7 +20,7 @@ export class DashboardPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticateService,
-    private storage: Storage,
+    
     
     
   ) 
@@ -28,30 +28,11 @@ export class DashboardPage implements OnInit {
   //  this.setTheValue();
   //  this.getTheValue();
   }
-  setTheValue(){
-  this.storage.set('name', "ironMan")
-  }
-  getTheValue(){
-    this.storage.get('name').then( (val) => {
-      console.log("value is " + val)
-    })
-  }
-
+ 
  
   ngOnInit(){
     
-    if(this.authService.userDetails()){
-      this.userEmail = this.authService.userDetails().email;
-    }else{
-      this.navCtrl.navigateBack('');
-    }
-    this.storage.set('age', '23');
-
-  // Or to get a key/value pair
-  this.storage.get('age').then((val) => {
-    console.log('Your age is', val);
-  });
-
+    
 
   }
  
@@ -78,7 +59,9 @@ export class DashboardPage implements OnInit {
   }
   Alcohol(){
     this.navCtrl.navigateForward('/alcohol');
-
+  }
+  checkout(){
+    this.navCtrl.navigateForward('/checkout')
   }
   
 
