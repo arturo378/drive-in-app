@@ -46,12 +46,12 @@ export class BurgerMenuPage implements OnInit {
  
     });
   }
-  async openModal(burgers) {
+  async openModal(items) {
     
     const modal = await this.modalController.create({
       component: SelectFoodPage,
       componentProps: {
-        data: burgers
+        data: items
       }
     });
     return await modal.present();

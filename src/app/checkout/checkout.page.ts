@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { StorageService, Item } from '../services/storage.service'
 import { ToastController, Platform } from '@ionic/angular';
 import { CrudService } from './../services/crud.service';
+import { AlertController } from '@ionic/angular';
 
 
 
@@ -25,6 +26,7 @@ newItem: Item = <Item>{};
     private storageService: StorageService,
     private plt: Platform,
     private crudService: CrudService,
+    public alertController: AlertController
   ) {
     this.plt.ready().then(() => {
       this.loadItems();
@@ -56,7 +58,43 @@ newItem: Item = <Item>{};
   close(){
     this.navCtrl.navigateBack('/dashboard');
   }
-  submit(){
+  async presentAlertPrompt() {
+    const alert = document.createElement('ion-alert');
+    alert.header = 'Prompt!';
+    alert.inputs = [
+    
+      {
+        name: 'parking_id',
+        id: 'parking_id',
+        placeholder: 'Parking Lot Number'
+      },
+      {
+        name: 'comments',
+        id: 'comments',
+        
+        placeholder: 'Order Comments'
+      }
+    ];
+    alert.buttons = [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        cssClass: 'secondary',
+        handler: () => {
+          console.log('Confirm Cancel')
+        }
+      }, {
+        text: 'Ok',
+        handler: () => {
+          console.log('Confirm Ok')
+        }
+      }
+    ];
+
+    document.body.appendChild(alert);
+    await alert.present();
+    let result = await alert.onDidDismiss();
+    console.log(result);
     var entree = {};
     var drink = {};
     var side = {};
@@ -89,14 +127,22 @@ newItem: Item = <Item>{};
     ticket["Status"] = "Order Placed";
     ticket["Total"] = "20.42";
     ticket["UID"] = this.authService.userDetails().uid;
-    ticket["Comments"] = "Hot sauce";
-    ticket["space_id"] = "A-1"
+    ticket["Comments"] = result.data.values.comments;
+    ticket["space_id"] = result.data.values.parking_id;
 
     this.crudService.create_ticket(ticket);
+    this.storageService.clearall();
 
 
     console.log(ticket);
+    
+    
+  }
+  
+  submit(){
+    
 
+   
 
 
 

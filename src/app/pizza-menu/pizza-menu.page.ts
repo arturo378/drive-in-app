@@ -42,9 +42,12 @@ export class PizzaMenuPage implements OnInit {
     });
   }
 
-  async openModal() {
+  async openModal(pizza) {
     const modal = await this.modalController.create({
-      component: SelectFoodPage
+      component: SelectFoodPage,
+      componentProps: {
+        data: pizza
+      }
     });
     return await modal.present();
   }

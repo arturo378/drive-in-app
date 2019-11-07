@@ -42,9 +42,12 @@ export class BeveragesMenuPage implements OnInit {
  
     });
   }
-  async openModal() {
+  async openModal(beverages) {
     const modal = await this.modalController.create({
-      component: SelectFoodPage
+      component: SelectFoodPage,
+      componentProps: {
+        data: beverages
+      }
     });
     return await modal.present();
   }

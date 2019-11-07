@@ -39,13 +39,16 @@ export class AlcoholPage implements OnInit {
           
         };
       })
-      console.log(this.data);
+      console.log(this.data)
  
     });
   }
-  async openModal() {
+  async openModal(drinks) {
     const modal = await this.modalController.create({
-      component: SelectFoodPage
+      component: SelectFoodPage,
+      componentProps: {
+        data: drinks
+      }
     });
     return await modal.present();
   }

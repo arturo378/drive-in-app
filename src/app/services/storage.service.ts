@@ -17,6 +17,7 @@ const ITEMS_KEY = 'items';
   providedIn: 'root'
 })
 export class StorageService {
+  items = [];
 
   constructor(
 
@@ -28,8 +29,11 @@ export class StorageService {
 
     var counter = 0;
     return this.storage.get(ITEMS_KEY).then((items: Item []) => {
-      
-      if(items.length == 0){
+      console.log(items);
+      if(items === null){
+        items = [];
+        
+        console.log("made it here")
           items.push(item);
           return this.storage.set(ITEMS_KEY, items);
       }else{
@@ -40,7 +44,7 @@ export class StorageService {
             i.quantity = i.quantity+item.quantity;
           }
         }
-        console.log(counter);
+        
         if(counter == 0){
           console.log("Hii");
 
@@ -52,6 +56,11 @@ export class StorageService {
 
       
     });
+  }
+  clearall(){
+    this.storage.clear();
+
+
   }
   getItem(): Promise<Item[]> {
     
