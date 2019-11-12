@@ -36,6 +36,8 @@ export class AlcoholPage implements OnInit {
           Name: e.payload.doc.data()['name'],
           Price: e.payload.doc.data()['price'],
           Description: e.payload.doc.data()['description'],
+          Category: e.payload.doc.data()['category']
+          
           
         };
       })

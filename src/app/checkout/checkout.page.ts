@@ -60,7 +60,7 @@ newItem: Item = <Item>{};
   }
   async presentAlertPrompt() {
     const alert = document.createElement('ion-alert');
-    alert.header = 'Prompt!';
+    alert.header = 'Confirmation';
     alert.inputs = [
     
       {
@@ -94,7 +94,7 @@ newItem: Item = <Item>{};
     document.body.appendChild(alert);
     await alert.present();
     let result = await alert.onDidDismiss();
-    console.log(result);
+    
     var entree = {};
     var drink = {};
     var side = {};
@@ -103,6 +103,8 @@ newItem: Item = <Item>{};
     this.storageService.getItem().then(items => {
       this.items = items;
       
+      
+      
 
     })
     for(var i = 0; i < this.items.length; ++i){
@@ -110,6 +112,7 @@ newItem: Item = <Item>{};
         entree[i] = this.items[i];
       }
       if(this.items[i].category == "drink"){
+        
         drink[i] = this.items[i];
       }
       if(this.items[i].category == "side"){
@@ -131,10 +134,11 @@ newItem: Item = <Item>{};
     ticket["space_id"] = result.data.values.parking_id;
 
     this.crudService.create_ticket(ticket);
-    this.storageService.clearall();
+    // this.storageService.clearall();
 
 
-    console.log(ticket);
+    
+    
     
     
   }

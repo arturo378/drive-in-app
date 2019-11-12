@@ -13,6 +13,7 @@ export class CrudService {
 
 
   create_ticket(record) {
+    console.log(record);
     return this.firestore.collection('tickets').add(record);
   }
 
