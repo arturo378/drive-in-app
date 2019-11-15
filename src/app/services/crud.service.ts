@@ -16,10 +16,14 @@ export class CrudService {
     console.log(record);
     return this.firestore.collection('tickets').add(record);
   }
+  recent_orders(userid){
+    return this.firestore.collection('tickets', ref => ref.where('UID', '==', userid) ).snapshotChanges();
+  }
 
   read_burger() {
     return this.firestore.collection('burgers').snapshotChanges();
   }
+
   read_beverages() {
     return this.firestore.collection('beverages').snapshotChanges();
   }

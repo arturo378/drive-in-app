@@ -134,9 +134,9 @@ newItem: Item = <Item>{};
     ticket["space_id"] = result.data.values.parking_id;
 
     this.crudService.create_ticket(ticket);
-    // this.storageService.clearall();
+    this.storageService.clearall();
 
-
+    this.navCtrl.navigateBack('/dashboard');
     
     
     

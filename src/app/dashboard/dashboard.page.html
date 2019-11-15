@@ -5,7 +5,8 @@
 </ion-header>
  
 <ion-content padding>
- 
+  
+<div *ngIf="menu">
 
   <ion-item (click)="Burger_Menu()" >
     <ion-label>
@@ -31,11 +32,21 @@
     </ion-label >
     <ion-icon name="beer" size="large" slot="end"></ion-icon>
   </ion-item>
-  <ion-item (click)="checkout()">
-    <ion-label>
-      Check-Out
-    </ion-label >
-    <ion-icon name="cart" size="large" slot="end"></ion-icon>
-  </ion-item>
   
- 
+</div>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+      <ion-col >
+        <ion-button (click)="homeselect()" expand="full">Home</ion-button>
+      </ion-col>
+      <ion-col >
+          <ion-button (click)="menuselect()" expand="full">Menu</ion-button>
+        </ion-col>
+      <ion-col >
+        <ion-button (click)="checkout()" expand="full">Checkout</ion-button>
+      </ion-col>
+     
+  </ion-row>
+</ion-footer>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
-
+import { CrudService } from './../services/crud.service';
 
 
 
@@ -13,13 +13,16 @@ import { AuthenticateService } from '../services/authentication.service';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
- 
+  menu: boolean = false;
+  data: any;
+  user_id: any;
  
   userEmail: string;
  
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticateService,
+    private crudService: CrudService
     
     
     
@@ -31,6 +34,24 @@ export class DashboardPage implements OnInit {
  
  
   ngOnInit(){
+    this.user_id = this.authService.userDetails().uid;
+    
+    this.crudService.recent_orders(this.user_id).subscribe(data => {
+ 
+    this.data = data.map(e => {
+      return {
+        id: e.payload.doc.id,
+        Date: e.payload.doc.data()['Date'],
+        Drinks: e.payload.doc.data()['Drink'],
+        Total: e.payload.doc.data()['Total'],
+        Entree: e.payload.doc.data()['Entree'],
+        Side: e.payload.doc.data()['Side']
+        
+      };
+    })
+    console.log(this.data);
+
+  });
     
     
 
@@ -63,6 +84,13 @@ export class DashboardPage implements OnInit {
   checkout(){
     this.navCtrl.navigateForward('/checkout')
   }
+  menuselect(){
+    this.menu = true;
+  }
+  homeselect(){
+    this.menu = false;
+  }
+  
   
 
 
