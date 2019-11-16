@@ -23,6 +23,9 @@ export class CrudService {
   read_burger() {
     return this.firestore.collection('burgers').snapshotChanges();
   }
+  read_sides() {
+    return this.firestore.collection('sides').snapshotChanges();
+  }
 
   read_beverages() {
     return this.firestore.collection('beverages').snapshotChanges();

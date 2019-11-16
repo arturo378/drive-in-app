@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'pizza-menu', loadChildren: './pizza-menu/pizza-menu.module#PizzaMenuPageModule' },
   { path: 'beverages-menu', loadChildren: './beverages-menu/beverages-menu.module#BeveragesMenuPageModule' },
   { path: 'alcohol', loadChildren: './alcohol/alcohol.module#AlcoholPageModule' },  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
+  { path: 'sides', loadChildren: './sides/sides.module#SidesPageModule' },
 
   
 

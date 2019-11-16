@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sides</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card (click)="openModal(sides)" expand="full" *ngFor = "let sides of data">
+      <img src={{sides.URL}}/>
+    <ion-card-header>
+      <ion-card-subtitle>{{sides.Price}}</ion-card-subtitle>
+      <ion-card-title>{{sides.Name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{sides.Description}}
+    </ion-card-content>
+  </ion-card>
+
+  
+  
+  
+  
+</ion-content>

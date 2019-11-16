@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Main Menu</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">Logout</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
  
@@ -32,14 +35,27 @@
     </ion-label >
     <ion-icon name="beer" size="large" slot="end"></ion-icon>
   </ion-item>
+  <ion-item (click)="Sides()">
+    <ion-label>
+      Sides
+    </ion-label >
+    <ion-icon name="fries" size="large" slot="end"></ion-icon>
+  </ion-item>
   
+</div>
+
+<div *ngIf="recent">
+ 
+
+
+
 </div>
 </ion-content>
 
 <ion-footer>
   <ion-row>
       <ion-col >
-        <ion-button (click)="homeselect()" expand="full">Home</ion-button>
+        <ion-button (click)="homeselect()" expand="full">Recent Orders</ion-button>
       </ion-col>
       <ion-col >
           <ion-button (click)="menuselect()" expand="full">Menu</ion-button>
