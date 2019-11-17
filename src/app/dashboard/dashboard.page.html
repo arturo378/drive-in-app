@@ -45,6 +45,30 @@
 </div>
 
 <div *ngIf="recent">
+
+    <ion-card (click)="openModal(items)" *ngFor = "let items of data">
+        <ion-card-header>
+         <ion-card-title>
+           Order Date: {{ items.Date | date }}
+         </ion-card-title>
+        </ion-card-header >
+
+       
+      
+        <ion-card-content >
+           <tr>Entree:</tr> 
+          <tr *ngFor = "let entree of items.Entree | keyvalue">{{ entree.value.name }} | Quantity: {{ entree.value.quantity }}</tr>
+
+          <tr>Side:</tr> 
+          <tr *ngFor = "let side of items.Side | keyvalue">{{ side.value.name }} | Quantity: {{ side.value.quantity }}</tr>
+
+          <tr>Drinks:</tr> 
+          <tr *ngFor = "let drink of items.Drinks | keyvalue">{{ drink.value.name }}  | Quantity: {{ drink.value.quantity }}</tr>
+
+        </ion-card-content>
+      </ion-card>
+      
+    
  
 
 

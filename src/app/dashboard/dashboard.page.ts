@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
 import { CrudService } from './../services/crud.service';
+import { StorageService, Item } from '../services/storage.service'
 
 
 
@@ -13,6 +14,7 @@ import { CrudService } from './../services/crud.service';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+  newItem: Item = <Item>{}; 
   menu: boolean = false;
   recent: boolean = true;
   data: any;
@@ -23,7 +25,8 @@ export class DashboardPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticateService,
-    private crudService: CrudService
+    private crudService: CrudService,
+    private storageService: StorageService
     
     
     
@@ -43,13 +46,14 @@ export class DashboardPage implements OnInit {
       return {
         id: e.payload.doc.id,
         Date:  new Date(e.payload.doc.data()['Date'].seconds*1000),
-        Drinks: e.payload.doc.data()['Drink'],
+        Drinks: JSON.parse(e.payload.doc.data()['Drink']),
         Total: e.payload.doc.data()['Total'],
-        Entree: e.payload.doc.data()['Entree'],
-        Side: e.payload.doc.data()['Side']
+        Entree: JSON.parse(e.payload.doc.data()['Entree']),
+        Side: JSON.parse(e.payload.doc.data()['Side'])
         
       };
     })
+    data = this.data.sort((a, b) => b.Date - a.Date)
     console.log(this.data);
     ;
 
@@ -97,6 +101,13 @@ export class DashboardPage implements OnInit {
   homeselect(){
     this.menu = false;
     this.recent = true;
+  }
+
+  openModal(items){
+    
+    console.log(items);
+    
+
   }
   
   
