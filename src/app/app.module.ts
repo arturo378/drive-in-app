@@ -20,8 +20,8 @@ import { SelectFoodPage } from '../app/select-food/select-food.page';
 
 firebase.initializeApp(environment.firebase);
 @NgModule({
-  declarations: [AppComponent, SelectFoodPage],
-  entryComponents: [SelectFoodPage],
+  declarations: [AppComponent],
+  
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 

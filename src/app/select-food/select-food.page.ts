@@ -14,7 +14,7 @@ export class SelectFoodPage implements OnInit {
 
 items: Item[] = [];
 newItem: Item = <Item>{};  
-private currentNumber = 1;
+public currentNumber = 1;
 @Input() data: any;
   constructor(
     private modalController: ModalController,
@@ -71,14 +71,14 @@ private currentNumber = 1;
 
 
 
-  private increment () {
+  public increment () {
     if(this.currentNumber < 10){
       this.currentNumber++;
     }
     
   }
   
-  private decrement () {
+  public decrement () {
 
     if(this.currentNumber >1){
       this.currentNumber--;
