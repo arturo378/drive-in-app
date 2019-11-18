@@ -29,11 +29,11 @@ export class StorageService {
 
     var counter = 0;
     return this.storage.get(ITEMS_KEY).then((items: Item []) => {
-      console.log(items);
+      
       if(items === null){
         items = [];
         
-        console.log("made it here")
+        
           items.push(item);
           return this.storage.set(ITEMS_KEY, items);
       }else{
@@ -46,7 +46,7 @@ export class StorageService {
         }
         
         if(counter == 0){
-          console.log("Hii");
+          
 
           items.push(item);
         }
@@ -67,14 +67,19 @@ export class StorageService {
     return this.storage.get(ITEMS_KEY);
 
   }
-  updateItem(item: Item){
+  updateItem(item: Item, qty){
+    
     return this.storage.get(ITEMS_KEY).then((items: Item[]) =>{
       if (!items || items.length === 0){
         return null;
       }
+     
+      
       let newItems: Item[] = [];
       for (let i of items){
         if (i.id === item.id){
+          
+          item.quantity = qty;
           newItems.push(item);
         }else{
           newItems.push(i);

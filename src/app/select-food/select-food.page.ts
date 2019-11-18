@@ -43,7 +43,7 @@ private currentNumber = 1;
     this.newItem.price = this.data.Price;
     this.newItem.category = this.data.Category;
     this.newItem.quantity = this.currentNumber;
-    this.newItem.quantity = this.currentNumber;
+    
     //console.log(this.newItem);
 
     this.storageService.addItem(this.newItem).then(item => {
