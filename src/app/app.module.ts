@@ -5,7 +5,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth'; 
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,16 +15,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { IonicStorageModule } from '@ionic/storage';
-import { SelectFoodPage } from '../app/select-food/select-food.page';
-
+import { MenuItemsModule } from './menu-items/menu-items.module';
 
 firebase.initializeApp(environment.firebase);
 @NgModule({
   declarations: [AppComponent],
-  
+
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
+    MenuItemsModule,
+    BrowserModule,
+    IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -33,7 +33,6 @@ firebase.initializeApp(environment.firebase);
     AngularFirestoreModule,
     IonicStorageModule.forRoot()
 
-    
 
     ],
   providers: [
@@ -42,6 +41,7 @@ firebase.initializeApp(environment.firebase);
     AuthenticateService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule {}

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { ToastController, Platform } from '@ionic/angular';
-import { StorageService, Item } from '../services/storage.service'
+import { StorageService, Item } from '../../services/storage.service'
 
 
 @Component({

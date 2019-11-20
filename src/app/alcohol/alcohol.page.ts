@@ -3,7 +3,7 @@ import { AuthenticateService } from '../services/authentication.service';
 import { NavController, ModalController } from '@ionic/angular';
 
 import { CrudService } from './../services/crud.service';
-import { SelectFoodPage } from '../select-food/select-food.page';
+import { SelectFoodPage } from '../menu-items/select-food/select-food.page';
 
 @Component({
   selector: 'app-alcohol',

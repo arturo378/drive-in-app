@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from '../services/authentication.service';
 import { NavController, ModalController } from '@ionic/angular';
-import { SelectFoodPage } from '../select-food/select-food.page';
+import { SelectFoodPage } from '../menu-items/select-food/select-food.page';
 import { CrudService } from './../services/crud.service';
 
 

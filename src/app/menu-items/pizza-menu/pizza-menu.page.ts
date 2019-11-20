@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticateService } from '../services/authentication.service';
+import { AuthenticateService } from '../../services/authentication.service';
 import { NavController, ModalController } from '@ionic/angular';
-import { CrudService } from './../services/crud.service';
+import { CrudService } from '../../services/crud.service';
 import { SelectFoodPage } from '../select-food/select-food.page';
-
 @Component({
-  selector: 'app-beverages-menu',
-  templateUrl: './beverages-menu.page.html',
-  styleUrls: ['./beverages-menu.page.scss'],
+  selector: 'app-pizza-menu',
+  templateUrl: './pizza-menu.page.html',
+  styleUrls: ['./pizza-menu.page.scss'],
 })
-export class BeveragesMenuPage implements OnInit {
+export class PizzaMenuPage implements OnInit {
 
   userEmail: string;
   data: any;
@@ -27,7 +26,7 @@ export class BeveragesMenuPage implements OnInit {
     }else{
       this.navCtrl.navigateBack('');
     }
-    this.crudService.read_beverages().subscribe(data => {
+    this.crudService.read_pizza().subscribe(data => {
  
       this.data = data.map(e => {
         return {
@@ -41,15 +40,16 @@ export class BeveragesMenuPage implements OnInit {
           
         };
       })
-      
+      console.log(this.data);
  
     });
   }
-  async openModal(beverages) {
+
+  async openModal(pizza) {
     const modal = await this.modalController.create({
       component: SelectFoodPage,
       componentProps: {
-        data: beverages
+        data: pizza
       }
     });
     return await modal.present();

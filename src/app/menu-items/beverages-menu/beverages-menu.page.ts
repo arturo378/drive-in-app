@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticateService } from '../services/authentication.service';
+import { AuthenticateService } from '../../services/authentication.service';
 import { NavController, ModalController } from '@ionic/angular';
+import { CrudService } from '../../services/crud.service';
 import { SelectFoodPage } from '../select-food/select-food.page';
-import { CrudService } from './../services/crud.service';
-
-
 
 @Component({
-  selector: 'app-burger-menu',
-  templateUrl: './burger-menu.page.html',
-  styleUrls: ['./burger-menu.page.scss'],
+  selector: 'app-beverages-menu',
+  templateUrl: './beverages-menu.page.html',
+  styleUrls: ['./beverages-menu.page.scss'],
 })
-export class BurgerMenuPage implements OnInit {
+export class BeveragesMenuPage implements OnInit {
 
   userEmail: string;
   data: any;
-  
+
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticateService,
@@ -29,8 +27,7 @@ export class BurgerMenuPage implements OnInit {
     }else{
       this.navCtrl.navigateBack('');
     }
-    
-    this.crudService.read_burger().subscribe(data => {
+    this.crudService.read_beverages().subscribe(data => {
  
       this.data = data.map(e => {
         return {
@@ -41,24 +38,21 @@ export class BurgerMenuPage implements OnInit {
           Category: e.payload.doc.data()['category'],
           URL: e.payload.doc.data()['pic']
           
+          
         };
       })
-      //console.log(this.data);
+      
  
     });
   }
-  async openModal(items) {
-    
+  async openModal(beverages) {
     const modal = await this.modalController.create({
       component: SelectFoodPage,
       componentProps: {
-        data: items
+        data: beverages
       }
     });
     return await modal.present();
-
   }
 
-  }
-
-
+}

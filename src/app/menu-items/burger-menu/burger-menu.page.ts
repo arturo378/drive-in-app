@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticateService } from '../services/authentication.service';
+import { AuthenticateService } from '../../services/authentication.service';
 import { NavController, ModalController } from '@ionic/angular';
-import { CrudService } from './../services/crud.service';
 import { SelectFoodPage } from '../select-food/select-food.page';
+import { CrudService } from '../../services/crud.service';
+
+
+
 @Component({
-  selector: 'app-pizza-menu',
-  templateUrl: './pizza-menu.page.html',
-  styleUrls: ['./pizza-menu.page.scss'],
+  selector: 'app-burger-menu',
+  templateUrl: './burger-menu.page.html',
+  styleUrls: ['./burger-menu.page.scss'],
 })
-export class PizzaMenuPage implements OnInit {
+export class BurgerMenuPage implements OnInit {
 
   userEmail: string;
   data: any;
-
+  
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticateService,
@@ -26,7 +29,8 @@ export class PizzaMenuPage implements OnInit {
     }else{
       this.navCtrl.navigateBack('');
     }
-    this.crudService.read_pizza().subscribe(data => {
+    
+    this.crudService.read_burger().subscribe(data => {
  
       this.data = data.map(e => {
         return {
@@ -37,22 +41,24 @@ export class PizzaMenuPage implements OnInit {
           Category: e.payload.doc.data()['category'],
           URL: e.payload.doc.data()['pic']
           
-          
         };
       })
-      console.log(this.data);
+      //console.log(this.data);
  
     });
   }
-
-  async openModal(pizza) {
+  async openModal(items) {
+    
     const modal = await this.modalController.create({
       component: SelectFoodPage,
       componentProps: {
-        data: pizza
+        data: items
       }
     });
     return await modal.present();
+
   }
 
-}
+  }
+
+
