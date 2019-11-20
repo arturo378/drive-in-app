@@ -193,10 +193,10 @@ newItem: Item = <Item>{};
     ticket["Comments"] = result.data.values.comments;
     ticket["space_id"] = result.data.values.parking_id;
 
-    // this.crudService.create_ticket(ticket);
-    // this.storageService.clearall();
+    this.crudService.create_ticket(ticket);
+    this.storageService.clearall();
 
-    // this.navCtrl.navigateBack('/dashboard');
+    this.navCtrl.navigateBack('/dashboard');
     
     
     
