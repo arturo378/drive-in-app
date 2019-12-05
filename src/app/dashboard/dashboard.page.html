@@ -11,36 +11,54 @@
   
 <div *ngIf="menu">
 
-  <ion-item (click)="Burger_Menu()" >
-    <ion-label>
-      Burgers
-    </ion-label>
-    <ion-icon name="pizza" size="large" slot="end"></ion-icon>
-  </ion-item>
-  <ion-item (click)="Pizza_Menu()">
-    <ion-label>
-      Pizza
-    </ion-label>
-    <ion-icon name="pizza" size="large" slot="end"></ion-icon>
-  </ion-item>
-  <ion-item (click)="Beverages_Menu()">
-    <ion-label>
-      Beverages
-    </ion-label>
-    <ion-icon name="beer" size="large" slot="end"></ion-icon>
-  </ion-item >
-  <ion-item (click)="Alcohol()">
-    <ion-label>
-      Alcoholic Beverages
-    </ion-label >
-    <ion-icon name="beer" size="large" slot="end"></ion-icon>
-  </ion-item>
-  <ion-item (click)="Sides()">
-    <ion-label>
-      Sides
-    </ion-label >
-    <ion-icon name="fries" size="large" slot="end"></ion-icon>
-  </ion-item>
+    <ion-card (click)="Burger_Menu()" expand="full" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/drive-in-93f2b.appspot.com/o/Burger%2Fburger.jpg?alt=media&token=e2c8ec01-7b63-4c7e-9d1c-166422f3bd27"/>
+      <ion-card-header>
+        
+        <ion-card-title>Burgers</ion-card-title>
+      </ion-card-header>
+  
+    </ion-card>
+    <ion-card (click)="Pizza_Menu()" expand="full" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/drive-in-93f2b.appspot.com/o/Pizza%2Fpizza.jpg?alt=media&token=8e71b3ef-c563-41e0-a016-7fec5f9aeddf"/>
+      <ion-card-header>
+        
+        <ion-card-title>Pizza</ion-card-title>
+      </ion-card-header>
+  
+    </ion-card>
+
+    <ion-card (click)="Sides()" expand="full" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/drive-in-93f2b.appspot.com/o/sides%2Fdry_wings%2Fdry_wings.jpg?alt=media&token=9b5f113d-e509-440c-a992-c4d482175341"/>
+      <ion-card-header>
+        
+        <ion-card-title>Sides</ion-card-title>
+      </ion-card-header>
+  
+    </ion-card>
+
+    <ion-card (click)="Beverages_Menu()" expand="full" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/drive-in-93f2b.appspot.com/o/Beverages%2Ffountain_soda%2Fsoda.jpg?alt=media&token=501f9d97-498c-4239-aa72-0fcf534587cb"/>
+      <ion-card-header>
+        
+        <ion-card-title>Beverages</ion-card-title>
+      </ion-card-header>
+  
+    </ion-card>
+
+    <ion-card (click)="Alcohol()" expand="full" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/drive-in-93f2b.appspot.com/o/Alcohol%2Fbeer.jpg?alt=media&token=2c3cdbef-976a-4537-a61f-5216106f2382"/>
+      <ion-card-header>
+        
+        <ion-card-title>Alcoholic Beverages</ion-card-title>
+      </ion-card-header>
+  
+    </ion-card>
+
+    
+
+   
+
   
 </div>
 
